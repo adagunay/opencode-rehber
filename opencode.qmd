@@ -3,8 +3,7 @@ title: "Opencode: Terminalde Yapay Zekâ Kod Asistanı"
 subtitle: "MBG4421 - Biyoinformatik"
 author: "Ada Günay Yıldız"
 date: 2026-08-11
-format: html
-toc: true
+format: revealjs
 ---
 
 Bu sayfada açık kaynak kodlu yapay zekâ kod asistanı **Opencode**'un kurulumu, temel kullanımı ve Galaxy'ye bağlanması anlatılmaktadır. Ders kapsamında özellikle **Galaxy MCP** kurulumu üzerinde durulmaktadır.
