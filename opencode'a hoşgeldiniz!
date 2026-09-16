@@ -6,7 +6,7 @@ date: 2026-08-11
 format: revealjs
 ---
 
-Bu sayfada açık kaynak kodlu yapay zekâ kod asistanı **Opencode**'un kurulumu, temel kullanımı ve Galaxy'ye bağlanması anlatılmaktadır. Ders kapsamında özellikle **Galaxy MCP** kurulumu üzerinde durulmaktadır.
+! Bu sayfada açık kaynak kodlu yapay zekâ kod asistanı **Opencode**'un kurulumu, temel kullanımı ve Galaxy'ye bağlanması anlatılmaktadır. Ders kapsamında özellikle **Galaxy MCP** kurulumu üzerinde durulmaktadır.
 
 ## Opencode Nedir?
 
@@ -17,7 +17,7 @@ Opencode, açık kaynak kodlu bir yapay zekâ kod asistanıdır. Proje klasörü
 - **Çoklu model:** Anthropic, OpenAI, Google gibi sağlayıcıların modelleriyle çalışır. Desteklenen modeller <https://models.dev> üzerinden listelenir.
 - **Çalışma prensibi:** Proje dosyalarını bağlam (context) olarak kullanır; her işlemi kullanıcı onayına sunar.
 
-## Kurulum
+! ## Kurulum
 
 ### Masaüstü (Desktop) Uygulaması
 
@@ -25,23 +25,23 @@ Kurulum için resmi sitedeki talimatları izleyin: <https://opencode.ai>. Masaü
 
 Kurulum sonrasında tek yapılması gereken, bir model sağlayıcısına bağlanmaktır.
 
-### Model Sağlayıcısına Bağlanma 
+! ### Model Sağlayıcısına Bağlanma 
 
 TUI’de /connect komutunu çalıştırın, OpenCode Zen’i seçin ve API anahtarınızı yapıştırın.
 
 Alternatif olarak `opencode auth login` ile giriş yapılabilir; kayıtlı sağlayıcılar `opencode auth list` komutuyla görüntülenir.
 
-## İlk Kullanım
+! ## İlk Kullanım
 
 Uygulamayı açtıktan sonra bir proje klasörü seçin. Karşınıza sohbet arayüzü gelir. `/init` komutu, seçilen klasörü analiz ederek projeyi tanıtır.
 
 > **İpucu:** İstekler ne kadar açık ve ayrıntılı olursa yanıtlar o kadar başarılı olur.
 
-## Model Seçimi: Hangi Yapay Zekâ Modelini Kullanmalı?
+! ## Model Seçimi: Hangi Yapay Zekâ Modelini Kullanmalı?
 
 Model tanımı `sağlayıcı/model` biçimindedir. Örneğin `anthropic/claude-sonnet-4-6`, Anthropic'in claude-sonnet-4-6 modelidir. Model tercihi; işin niteliğine, bütçeye ve bağlam (context) gereksinimine göre değişir.
 
-### Modelleri Görme ve Değiştirme
+! ### Modelleri Görme ve Değiştirme
 
 | Yöntem | Açıklama |
 |---|---|
@@ -51,13 +51,13 @@ Model tanımı `sağlayıcı/model` biçimindedir. Örneğin `anthropic/claude-s
 
 Varsayılan model, `opencode.json` dosyasından belirlenir:
 
-```json
+! ```json
 {
   "model": "anthropic/claude-sonnet-4-6"
 }
 ```
 
-### OpenCode Zen: Anahtar Gerektirmeyen Başlangıç
+! ### OpenCode Zen: Anahtar Gerektirmeyen Başlangıç
 
 API anahtarı edinmeden çalışmak için **OpenCode Zen** modelleri kullanılır. Bunlar `opencode/` önekiyle listelenir (ör. `opencode/deepseek-v4-flash-free`); adının sonunda `-free` bulunan modeller **ücretsizdir**. Bağlantı `/connect` → `opencode` (Zen) ile yapılır.
 
@@ -65,7 +65,7 @@ API anahtarı edinmeden çalışmak için **OpenCode Zen** modelleri kullanılı
 
 Zen üzerinden sunulan bazı modeller **kod adlarıyla (codenames)** yayınlanır (ör. `opencode/big-pickle`). Arkasındaki model OpenCode tarafından belirlenir ve zamanla güncellenebilir.
 
-**Sağlayıcı modelleri ile Zen modelleri arasındaki temel farklar:**
+! **Sağlayıcı modelleri ile Zen modelleri arasındaki temel farklar:**
 
 | | Sağlayıcı modelleri | OpenCode Zen modelleri |
 |---|---|---|
@@ -76,7 +76,7 @@ Zen üzerinden sunulan bazı modeller **kod adlarıyla (codenames)** yayınlanı
 
 > Kod adları, hangi modelin kullanıldığı konusunda garanti vermez. Kritik işlerde sağlayıcı modeli, deneme amaçlı çalışmalarda Zen modelleri tercih edilmelidir.
 
-### Ana Model Aileleri (2026)
+! ### Ana Model Aileleri (2026)
 
 Token, modelin tek seferde işleyebildiği bağlam miktarıdır.
 
@@ -92,7 +92,7 @@ Token, modelin tek seferde işleyebildiği bağlam miktarıdır.
 
 > Fiyatlar ve sürümler sık güncellenir; güncel bilgi için `/models` komutu kullanılmalıdır.
 
-## Galaxy MCP Kurulumu
+! ## Galaxy MCP Kurulumu
 
 ### MCP Nedir? (Model Context Protocol)
 
@@ -108,13 +108,13 @@ pip install galaxy-mcp
 
 Kurulumun başarılı olduğu `galaxy-mcp --help` komutuyla doğrulanabilir.
 
-### 2. Galaxy'den API Anahtarı Alma
+! ### 2. Galaxy'den API Anahtarı Alma
 
 1. [usegalaxy.org](https://usegalaxy.org) (veya usegalaxy.eu / usegalaxy.org.au) sitesine giriş yapın.
 2. **User → Preferences → Manage API Key** bölümüne gidin.
 3. 32 karakterlik anahtarı kopyalayın (ör. `abcd1234...`).
 
-### 3. Opencode Konfigürasyonu
+! ### 3. Opencode Konfigürasyonu
 
 MCP sunucusu, `opencode.json` (global: `~/.config/opencode/opencode.json`, proje: `./opencode.json`) içine şu şekilde eklenir:
 
@@ -135,7 +135,7 @@ MCP sunucusu, `opencode.json` (global: `~/.config/opencode/opencode.json`, proje
 }
 ```
 
-**Dikkat edilmesi gerekenler:**
+! **Dikkat edilmesi gerekenler:**
 
 - `command` alanı bir **dizi (array)** olmalıdır; tek bir metin değeri kabul edilmez.
 - `galaxy-mcp.exe` yolunu `where galaxy-mcp` komutuyla tespit edip değiştirin.
@@ -175,9 +175,9 @@ Bazı MCP sunucuları, yerel kurulum gerektirmeden HTTP üzerinden bağlanır:
 
 OAuth gerektiren sunucularda `opencode mcp auth <sunucu-adi>` komutu, tarayıcıda yetkilendirme başlatır.
 
-## Sorun Giderme
+ ! ## Sorun Giderme
 
-| Sorun | Çözüm |
+!| Sorun | Çözüm |
 |---|---|
 | `opencode` komutu bulunamıyor | PATH tanımını kontrol edin veya programı yeniden kurun |
 | MCP görünmüyor | `opencode.json` içinde `enabled: true` olduğunu doğrulayın ve Opencode'u yeniden başlatın |
